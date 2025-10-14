@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="expenses.html">Expenses</a></li>
+                <li><a href="income.html">Income</a></li>
+            </ul>
+        </nav>
+        <h1>Personal Finance Dashboard</h1>
+    </header>
+
+    <main class="container">
+        <!-- Summary Section -->
+        <section id="summary-section">
+            <h2 class="my-second-header">Summary</h2>
+            <div id="totals" class="summary-container">
+                <div id="total-income" class="summary-box colorful-box">
+                    Total Income: $0.00
+                </div>
+                <div id="total-expenses" class="summary-box colorful-box">
+                    Total Expenses: $0.00
+                </div>
+                <div id="top-category" class="summary-box colorful-box">
+                    Top Spending Category: N/A
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions Table -->
+        <section id="transactions-section">
+            <h2 class="my-second-header">All Transactions</h2>
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transactions will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+    <button id="resetStorage">Reset All Data</button>
+        &copy; 2025 Personal Finance Management System
+        <!-- Add this somewhere in your HTML, e.g., above the transactions table -->
+
+        
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

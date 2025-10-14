@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses - Personal Finance Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="expenses.html" class="active">Expenses</a></li>
+                <li><a href="income.html">Income</a></li>
+            </ul>
+        </nav>
+        <h1>Expenses</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- Add Expense Form -->
+        <section id="add-expense-section">
+            <h2 class="my-second-header">Add New Expense</h2>
+            <form id="expenseForm">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Subscriptions">Subscriptions</option>
+                    <option value="Shopping">Shopping</option>
+                    <!-- Add more categories as needed -->
+                </select>
+
+                <button type="submit">Add Expense</button>
+            </form>
+        </section>
+
+        <!-- Expenses Table -->
+        <section id="expenses-list">
+            <h2 class="my-second-header">Your Expenses</h2>
+            <table id="expensesTable">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Expenses will be dynamically inserted here -->
+                </tbody>
+            </table>
+
+            <!-- Total Expenses for each category -->
+            <div id="category-totals">
+                <h3>Category Totals:</h3>
+                <ul>
+                    <li id="food-total">Food: $0.00</li>
+                    <li id="bills-total">Bills: $0.00</li>
+                    <li id="transportation-total">Transportation: $0.00</li>
+                    <li id="subscriptions-total">Subscriptions: $0.00</li>
+                    <li id="shopping-total">Shopping: $0.00</li>
+                    <!-- Add more categories as needed -->
+                </ul>
+            </div>
+
+            <!-- Total Expenses -->
+            <div id="total-expenses" class="my-second-header">
+                Total Expenses: $0.00
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 Personal Finance Tracker
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
