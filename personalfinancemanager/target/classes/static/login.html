@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Login - Finance Manager</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width:400px;margin:60px auto;">
+    <h2>Login</h2>
+    <div>
+      <label>Username</label>
+      <input id="username" type="text" style="width:100%;padding:8px;margin:6px 0"/>
+    </div>
+    <div>
+      <label>Password</label>
+      <input id="password" type="password" style="width:100%;padding:8px;margin:6px 0"/>
+    </div>
+    <button id="loginBtn">Login</button>
+    <p id="msg" style="color:red;"></p>
+  </div>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const resp = await apiFetch('/api/auth/login', 'POST', { username: user, password: pass });
+      if (resp.status === 200) {
+        window.location.href = '/home.html';
+      } else {
+        document.getElementById('msg').textContent = (resp.data && resp.data.message) ? resp.data.message : 'Login failed';
+      }
+    });
+  </script>
+</body>
+</html>

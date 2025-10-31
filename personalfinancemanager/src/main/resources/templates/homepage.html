@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Personal Finance Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        h1 { color: #2c3e50; }
+        .summary {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 200px;
+        }
+        .card h2 { margin: 0; color: #34495e; }
+    </style>
+</head>
+<body>
+    <h1 th:text="${title}">Personal Finance Manager</h1>
+
+    <div class="summary">
+        <div class="card">
+            <h2>Total Income</h2>
+            <p th:text="${totalIncome}">0</p>
+        </div>
+        <div class="card">
+            <h2>Total Expense</h2>
+            <p th:text="${totalExpense}">0</p>
+        </div>
+        <div class="card">
+            <h2>Balance</h2>
+            <p th:text="${balance}">0</p>
+        </div>
+    </div>
+
+    <br><br>
+    <h2>All Transactions (coming soon)</h2>
+</body>
+</html>

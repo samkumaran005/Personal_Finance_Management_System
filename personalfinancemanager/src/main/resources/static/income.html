@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Income - Finance Manager</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Income</h1>
+    <nav>
+      <a href="/home.html">Home</a>
+      <a href="/income.html">Income</a>
+      <a href="/expense.html">Expense</a>
+      <a href="#" id="logout">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h3>Add Income</h3>
+    <div>
+      <input id="source" placeholder="Source" style="width:60%;padding:8px"/>
+      <input id="amount" placeholder="Amount" type="number" style="width:30%;padding:8px"/>
+      <button id="addIncome">Add</button>
+    </div>
+
+    <h3 style="margin-top:20px">Your Incomes</h3>
+    <pre id="incomeList">Loading...</pre>
+  </div>
+
+  <script>
+    async function loadIncomes() {
+      const r = await apiFetch('/api/income');
+      if (r.status === 401) { window.location.href = '/login.html'; return; }
+      document.getElementById('incomeList').textContent = JSON.stringify(r.data, null, 2);
+    }
+
+    document.getElementById('addIncome').addEventListener('click', async () => {
+      const src = document.getElementById('source').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      if (!src || isNaN(amount)) return alert('Provide source and amount');
+      const resp = await apiFetch('/api/income', 'POST', { source: src, amount: amount });
+      if (resp.status === 200) { 
+        document.getElementById('source').value=''; document.getElementById('amount').value='';
+        loadIncomes();
+      } else {
+        alert(resp.data ? JSON.stringify(resp.data) : 'Error');
+      }
+    });
+
+    document.getElementById('logout').addEventListener('click', async (e) => {
+      e.preventDefault();
+      await apiFetch('/api/auth/logout','POST', {});
+      window.location.href = '/login.html';
+    });
+
+    loadIncomes();
+  </script>
+</body>
+</html>
