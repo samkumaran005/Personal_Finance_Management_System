@@ -1,0 +1,12 @@
+🌐 Localhost Links (default port 8080)
+Page	URL	Description
+🏠 Login Page	http://localhost:8080/
+	
+🧾 Home Page	http://localhost:8080/home
+	
+💰 Income Page	http://localhost:8080/income
+	
+💸 Expense Page	http://localhost:8080/expense
+	
+🚪 Logout	http://localhost:8080/logout
+	
