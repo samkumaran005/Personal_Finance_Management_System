@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense | Personal Finance Manager</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Personal Finance Manager</h1>
+   <nav>
+        <a th:href="@{/home}">Home</a>
+      <a th:href="@{/income}">Income</a>
+      <a th:href="@{/expense}">Expense</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Add Expense</h2>
+      <form action="/expense" method="post">
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <textarea name="note" placeholder="Note (optional)"></textarea>
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h3>Expense Transactions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="exp : ${expenseList}">
+            <td th:text="${exp.date}"></td>
+            <td th:text="${exp.category}"></td>
+            <td th:text="${exp.amount}"></td>
+            <td th:text="${exp.note}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+</body>
+</html>

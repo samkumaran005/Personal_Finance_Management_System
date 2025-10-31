@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dashboard | Personal Finance Manager</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+    }
+
+    header {
+      background: #5563DE;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      width: 250px;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2C48DC;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>💰 Personal Finance Manager</h2>
+    <nav>
+      <a th:href="@{/income}">Income</a>
+      <a th:href="@{/expense}">Expense</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <div class="dashboard">
+    <div class="card">
+      <h3>Total Income</h3>
+      <p th:text="${totalIncome}"></p>
+    </div>
+    <div class="card">
+      <h3>Total Expense</h3>
+      <p th:text="${totalExpense}"></p>
+    </div>
+    <div class="card">
+      <h3>Balance</h3>
+      <p th:text="${balance}"></p>
+    </div>
+  </div>
+</body>
+</html>
