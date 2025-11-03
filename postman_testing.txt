@@ -1,0 +1,88 @@
+1. LOGIN
+
+Description: Verify username and password from MySQL and create session.
+
+Method: POST
+
+URL: http://localhost:8080/api/auth/login
+
+
+Headers:
+
+Content-Type: application/json
+
+
+Body → raw → JSON
+
+{
+
+"username": "testuser",//demo
+
+"password": "test123"//demo123
+
+}
+
+
+
+
+2. HOME PAGE DETAILS
+
+Description: Displays totals for income, expense, and balance.
+
+Method: GET URL: http://localhost:8080/api/home
+
+
+3. ADD INCOME
+
+Description: Adds a new income record into the MySQL income table.
+
+
+Method: POST URL: http://localhost:8080/api/income/add or http://localhost:8080/api/expense/add
+
+
+Headers:
+
+Content-Type: application/json
+
+
+Body → raw → JSON
+
+{
+
+"source": "Freelance Project",
+
+"amount": 8000,
+
+"date": "2025-10-31"
+
+}
+
+(or)
+
+{
+
+"category": "Groceries",
+
+"amount": 2500,
+
+"date": "2025-10-30"
+
+}
+
+
+4. VIEW ALL INCOME
+
+
+Description: Fetch all income transactions.
+
+Method: GET URL: http://localhost:8080/api/income/all or http://localhost:8080/api/expense/all
+
+
+
+5. LOGOUT
+
+Description: Invalidate the user session.
+
+Method: POST
+
+URL: http://localhost:8080/api/auth/logout
